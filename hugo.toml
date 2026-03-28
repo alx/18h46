@@ -1,0 +1,36 @@
+copyright = "© 18h46"
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy"]
+enableRobotsTXT = true
+languageCode = "en"
+timeZone = "Asia/Bangkok"
+timeout = "120s"
+title = "18h46"
+theme = "gallery"
+baseURL = "https://alx.github.io/18h46/"
+
+[params]
+  defaultTheme = "dark"
+  description = "One photo. Every day. 18h46."
+  title = "18h46"
+  [params.author]
+    name = "Alex"
+  [params.gallery]
+    targetRowHeight = 400
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[imaging]
+  quality = 85
+  resampleFilter = "CatmullRom"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    includeFields = "ImageDescription|Orientation"
+
+[services]
+  [services.rss]
+    limit = 365
