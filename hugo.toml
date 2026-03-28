@@ -11,7 +11,7 @@ baseURL = "https://alx.github.io/18h46/"
 
 [params]
   defaultTheme = "dark"
-  description = "One photo. Every day. 18h46."
+  description = "Every day."
   title = "18h46"
   [params.author]
     name = "Alex"
