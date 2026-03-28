@@ -7,8 +7,7 @@ CAPTION="${2:-}"
 CUSTOM_DATE="${3:-$(date +%Y-%m-%d)}"
 [[ -z "$PHOTO_PATH" ]] && echo "Usage: $0 <photo> [caption] [date]" && exit 1
 [[ ! -f "$PHOTO_PATH" ]] && echo "❌ File not found: $PHOTO_PATH" && exit 1
-YEAR="${CUSTOM_DATE:0:4}"
-POST_DIR="$SITE_DIR/content/$YEAR/$CUSTOM_DATE"
+POST_DIR="$SITE_DIR/content/$CUSTOM_DATE"
 mkdir -p "$POST_DIR"
 EXT="${PHOTO_PATH##*.}"
 cp "$PHOTO_PATH" "$POST_DIR/photo.${EXT}"
@@ -22,7 +21,6 @@ ${CAPTION:+description: \"${CAPTION}\"}
 ---
 ${CAPTION:+${CAPTION}}
 FRONTMATTER
-[[ ! -f "$SITE_DIR/content/$YEAR/_index.md" ]] && printf -- "---\ntitle: \"$YEAR\"\ndate: $YEAR-01-01\n---\n" > "$SITE_DIR/content/$YEAR/_index.md"
 /tmp/hugo --source "$SITE_DIR" --minify --quiet
 cd "$SITE_DIR"
 git add .
